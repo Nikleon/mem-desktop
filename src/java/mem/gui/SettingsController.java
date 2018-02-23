@@ -1,6 +1,7 @@
 package mem.gui;
 
 import java.awt.Desktop;
+import java.awt.Desktop.Action;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -8,6 +9,7 @@ import java.net.URISyntaxException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.validator.routines.UrlValidator;
 
 import javafx.fxml.FXML;
@@ -73,12 +75,13 @@ public class SettingsController {
 
 			// Open link in default browser when clicked
 			this.setOnAction(evt -> {
-				if (Desktop.isDesktopSupported()) {
-					try {
+				try {
+					if (SystemUtils.IS_OS_LINUX) // If running on Linux
+						Runtime.getRuntime().exec("xdg-open " + uri);
+					else if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Action.BROWSE))
 						Desktop.getDesktop().browse(uri);
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
 			});
 

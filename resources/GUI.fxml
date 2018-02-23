@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.SettingsController">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Whitelisted sites">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="whitelist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+               <children>
+                  <Label text="Add Whitelisted:">
+                     <font>
+                        <Font name="Calibri" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="whitelistInput" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <Label text="Blacklisted sites">
+               <font>
+                  <Font name="Calibri Bold" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="blacklist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
+            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+               <children>
+                  <Label text="Add Blacklisted:">
+                     <font>
+                        <Font name="Calibri" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="blacklistInput" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox spacing="40.0">
+               <children>
+                  <VBox spacing="15.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" text="Enable living">
+                           <font>
+                              <Font name="Calibri" size="17.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" text="Enable loving">
+                           <font>
+                              <Font name="Calibri" size="17.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" selected="true" text="Enable learning">
+                           <font>
+                              <Font name="Calibri" size="17.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+                  <VBox spacing="10.0">
+                     <children>
+                        <CheckBox disable="true" mnemonicParsing="false" text="Enable not being sleep deprived">
+                           <font>
+                              <Font name="Calibri" size="17.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </center>
+</BorderPane>

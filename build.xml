@@ -1,18 +1,18 @@
 <project name="MEM-Desktop" basedir="." default="main">
 
-	<property name="src.dir"		value="src/java"/>
-	
+	<property name="javasrc.dir"		value="src/java"/>
 	<!-- http://ant-contrib.sourceforge.net/cpptasks/index.html -->
-	<property name="jni.dir"		value="src/jni"/>
+	<property name="jnisrc.dir"		value="src/jni"/>
 	
 	<property name="build.dir"		value="build"/>
-	<property name="classes.dir"	value="${build.dir}/classes"/>
-	<property name="jar.dir"		value="${build.dir}/jar"/>
-	<property name="lib.dir"		value="lib"/>
-	<property name="resources.dir"	value="resources"/>
 	
-	<path id="classpath">
-		<fileset dir="${lib.dir}" includes="**/*.jar"/>
+	<path id="libraries.path">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	<path id="resources.path">
+		<fileset dir="resources"/>
 	</path>
 	
 	<property name="main-class"		value="mem.MEM"/>
@@ -23,17 +23,20 @@
 		<delete dir="${build.dir}"/>
 	</target>
 	
-	<target name="compile">
-		<mkdir dir="${classes.dir}"/>
-		<copy todir="${classes.dir}">
-			<fileset dir="${resources.dir}"/>
-		</copy>
-		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+	<target name="compile" depends="clean">
+		<mkdir dir="${build.dir}/classes"/>
+		<javac destdir="${build.dir}/classes" includeAntRuntime="false">
+			<src path="${javasrc.dir}"/>
+			<src path="resources"/>
+			<classpath refid="libraries.path"/>
+		</javac>
 	</target>
 	
 	<target name="jar" depends="compile">
-		<mkdir dir="${jar.dir}"/>
-		<jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+		<mkdir dir="target"/>
+		<jar destfile="target/${ant.project.name}.jar" basedir="${build.dir}/classes">
+			<zipgroupfileset dir="lib" includes="*.jar"/>
+			<zipfileset dir="resources"/>
 			<manifest>
 				<attribute name="Main-Class" value="${main-class}"/>
 			</manifest>
@@ -41,15 +44,8 @@
 	</target>
 	
 	<target name="run" depends="jar">
-		<java fork="true" classname="${main-class}">
-			<classpath>
-				<path refid="classpath"/>
-				<path location="${jar.dir}/${ant.project.name}.jar"/>
-			</classpath>
-		</java>
+		<java jar="target/${ant.project.name}.jar" fork="true"/>
 	</target>
-	
-	<target name="clean-build" depends="clean,jar"/>
 	
 	<target name="main" depends="clean,run"/>
 	

@@ -13,7 +13,6 @@
 	
 	<path id="classpath">
 		<fileset dir="${lib.dir}" includes="**/*.jar"/>
-		<fileset dir="${resources.dir}"/>
 	</path>
 	
 	<property name="main-class"		value="mem.MEM"/>
@@ -26,6 +25,9 @@
 	
 	<target name="compile">
 		<mkdir dir="${classes.dir}"/>
+		<copy todir="${classes.dir}">
+			<fileset dir="${resources.dir}"/>
+		</copy>
 		<javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
 	</target>
 	

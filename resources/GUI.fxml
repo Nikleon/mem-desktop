@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
@@ -7,80 +10,168 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.SettingsController">
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+
+<SplitPane dividerPositions="0.298" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.SettingsController">
+  <items>
+      <TabPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="500.0">
+         <tabs>
+            <Tab closable="false" text="Chrome Extension">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <VBox spacing="25.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Whitelisted sites">
+                                 <font>
+                                    <Font name="Calibri Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="whitelist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
+                              <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                                 <children>
+                                    <Label text="Add Whitelisted:">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="whitelistInput" />
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <Label text="Blacklisted sites">
+                                 <font>
+                                    <Font name="Calibri Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <ListView fx:id="blacklist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
+                              <HBox alignment="CENTER_RIGHT" spacing="20.0">
+                                 <children>
+                                    <Label text="Add Blacklisted:">
+                                       <font>
+                                          <Font name="Calibri" size="20.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="blacklistInput" />
+                                 </children>
+                              </HBox>
+                              <Separator prefWidth="200.0" />
+                              <HBox spacing="40.0">
+                                 <children>
+                                    <VBox spacing="15.0">
+                                       <children>
+                                          <CheckBox mnemonicParsing="false" text="Enable living">
+                                             <font>
+                                                <Font name="Calibri" size="17.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" text="Enable loving">
+                                             <font>
+                                                <Font name="Calibri" size="17.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <CheckBox mnemonicParsing="false" selected="true" text="Enable learning">
+                                             <font>
+                                                <Font name="Calibri" size="17.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox spacing="10.0">
+                                       <children>
+                                          <CheckBox disable="true" mnemonicParsing="false" text="Enable not being sleep deprived">
+                                             <font>
+                                                <Font name="Calibri" size="17.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" disable="true" text="Desktop Monitor">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+            <Tab closable="false" text="Calendar Import">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <ListView focusTraversable="false" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Stats">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Canvas height="360.0" width="360.0" />
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </HBox>
+                     </center>
+                  </BorderPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <VBox alignment="TOP_CENTER" spacing="20.0">
          <children>
-            <Label text="Whitelisted sites">
-               <font>
-                  <Font name="Calibri Bold" size="24.0" />
-               </font>
-            </Label>
-            <ListView fx:id="whitelist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
-            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+            <TextFlow textAlignment="CENTER">
                <children>
-                  <Label text="Add Whitelisted:">
-                     <font>
-                        <Font name="Calibri" size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="whitelistInput" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e1e1e1" height="500.0" stroke="#000000b9" strokeType="INSIDE" width="200.0">
+                     <effect>
+                        <Bloom />
+                     </effect>
+                  </Rectangle>
                </children>
-            </HBox>
-            <Separator prefWidth="200.0" />
-            <Label text="Blacklisted sites">
-               <font>
-                  <Font name="Calibri Bold" size="24.0" />
-               </font>
-            </Label>
-            <ListView fx:id="blacklist" focusTraversable="false" prefHeight="70.0" prefWidth="460.0" />
-            <HBox alignment="CENTER_RIGHT" spacing="20.0">
+            </TextFlow>
+            <GridPane hgap="10.0" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label text="Add Blacklisted:">
-                     <font>
-                        <Font name="Calibri" size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="blacklistInput" />
-               </children>
-            </HBox>
-            <Separator prefWidth="200.0" />
-            <HBox spacing="40.0">
-               <children>
-                  <VBox spacing="15.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Enable living">
+                        <Label text="Account Login">
                            <font>
-                              <Font name="Calibri" size="17.0" />
+                              <Font name="Agency FB" size="28.0" />
                            </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" text="Enable loving">
-                           <font>
-                              <Font name="Calibri" size="17.0" />
-                           </font>
-                        </CheckBox>
-                        <CheckBox mnemonicParsing="false" selected="true" text="Enable learning">
-                           <font>
-                              <Font name="Calibri" size="17.0" />
-                           </font>
-                        </CheckBox>
+                        </Label>
                      </children>
-                  </VBox>
-                  <VBox spacing="10.0">
-                     <children>
-                        <CheckBox disable="true" mnemonicParsing="false" text="Enable not being sleep deprived">
-                           <font>
-                              <Font name="Calibri" size="17.0" />
-                           </font>
-                        </CheckBox>
-                     </children>
-                  </VBox>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                  </HBox>
+                  <Label text="Username:" GridPane.rowIndex="1" />
+                  <Label text="Password:" GridPane.rowIndex="2" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
-            </HBox>
+            </GridPane>
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="30.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </VBox>
-   </center>
-</BorderPane>
+  </items>
+</SplitPane>

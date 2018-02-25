@@ -6,12 +6,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.validator.routines.UrlValidator;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.ListView;
@@ -19,6 +19,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Duration;
+import mem.gui.login.Credentials;
 import mem.utils.LinkUtils;
 
 public class SettingsController {
@@ -53,13 +55,14 @@ public class SettingsController {
 				input.setEffect(new ColorAdjust(0, .25, 0, 0));
 
 				// Remove effect after a short delay
-				new Timer().schedule(new TimerTask() {
-					public void run() {
-						input.setEffect(null);
-					}
-				}, 200);
+				KeyFrame task = new KeyFrame(Duration.millis(200), onFinishEvt -> input.setEffect(null));
+				new Timeline(task).play();
 			}
 		});
+	}
+
+	public void initTabs(Credentials creds) {
+		// TODO: disable tabs and fetch settings as appropriate
 	}
 
 	class WebsiteEntry extends Hyperlink {

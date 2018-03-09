@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.login.CalendarController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="720.0">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="720.0" prefWidth="215.0" spacing="30.0" style="-fx-background-color: LIGHTBLUE;">
+               <children>
+                  <Label text="Number of tasks to Sync" />
+                  <TextArea fx:id="numInput" prefHeight="40.0" prefWidth="80.0" />
+                  <Button fx:id="syncButton" alignment="CENTER" mnemonicParsing="false" text="Synchronize" />
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </VBox>
+            <Separator orientation="VERTICAL" prefHeight="720.0" prefWidth="0.0" />
+            <VBox alignment="CENTER_LEFT" spacing="30.0">
+               <children>
+                  <Label text="Filtered Working List" />
+                  <ScrollPane fx:id="taskPane_to" prefHeight="313.0" prefWidth="612.0" />
+                  <Label text="Sync To-Do list" />
+                  <ScrollPane fx:id="taskPane_from" prefHeight="170.0" prefWidth="612.0" />
+                  <Button fx:id="filterButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" text="Filter" />
+               </children>
+               <padding>
+                  <Insets bottom="30.0" left="60.0" right="60.0" top="40.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -41,7 +41,7 @@ public class MEM extends Application {
 
 	private GridPane loginPane;
 	private Credentials credentials;
-	
+
 	private TabPane settingsPane;
 	private VBox modulePane;
 	private AnchorPane calendarPane;
@@ -150,7 +150,6 @@ public class MEM extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 
 		HBox root = new HBox(settingsPane, new Separator(Orientation.VERTICAL), modulePane);
 		root.setPadding(new Insets(10.0, 20.0, 10.0, 20.0));

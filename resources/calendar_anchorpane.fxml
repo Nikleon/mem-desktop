@@ -28,9 +28,9 @@
             <VBox alignment="CENTER_LEFT" spacing="30.0">
                <children>
                   <Label text="Filtered Working List" />
-                  <ScrollPane fx:id="taskPane_to" prefHeight="313.0" prefWidth="612.0" />
+                  <ListView fx:id="taskView_to" prefHeight="200.0" prefWidth="600.0" />
                   <Label text="Sync To-Do list" />
-                  <ScrollPane fx:id="taskPane_from" prefHeight="170.0" prefWidth="612.0" />
+                  <ListView fx:id="taskView_from" prefHeight="200.0" prefWidth="600.0" />
                   <Button fx:id="filterButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="90.0" text="Filter" />
                </children>
                <padding>

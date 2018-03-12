@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.login.CalendarController">
+<AnchorPane fx:id="root" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mem.gui.CalendarController">
    <children>
       <HBox alignment="CENTER" prefHeight="720.0">
          <children>
@@ -15,6 +15,7 @@
                   <Label text="Number of tasks to Sync" />
                   <TextArea fx:id="numInput" prefHeight="40.0" prefWidth="80.0" />
                   <Button fx:id="syncButton" alignment="CENTER" mnemonicParsing="false" text="Synchronize" />
+                  <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" text="Back" />
                </children>
                <padding>
                   <Insets bottom="30.0" left="30.0" right="30.0" />

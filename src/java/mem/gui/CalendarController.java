@@ -1,11 +1,10 @@
-package mem.gui.login;
+package mem.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
-import mem.gui.GuiEvent;
 
 public class CalendarController {
 	
@@ -32,7 +31,7 @@ public class CalendarController {
 	
 	@FXML
 	private void initialize() {
-		
+
 	}
 	
 	public void initCalendar() {

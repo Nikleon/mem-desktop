@@ -66,22 +66,22 @@
                               </Slider>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" spacing="40.0">
-                           <children>
-                              <CheckBox fx:id="allTabsToggle" mnemonicParsing="false" selected="true" text="Monitor All Tabs">
-                                 <font>
-                                    <Font name="Calibri" size="18.0" />
-                                 </font>
-                              </CheckBox>
-                              <CheckBox fx:id="autoblacklistToggle" mnemonicParsing="false" selected="true" text="Auto-Blacklisting">
-                                 <font>
-                                    <Font name="Calibri" size="18.0" />
-                                 </font>
-                              </CheckBox>
-                           </children>
+                        <HBox alignment="BOTTOM_LEFT" spacing="20.0">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
+                           <children>
+                              <Label focusTraversable="false" text="Current tab:">
+                                 <font>
+                                    <Font name="Calibri Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <Hyperlink fx:id="currentTabLink" text="&lt;CURRENT_TAB_LINK&gt;">
+                                 <font>
+                                    <Font name="Cambria Bold" size="14.0" />
+                                 </font>
+                              </Hyperlink>
+                           </children>
                         </HBox>
                      </children>
                      <padding>
